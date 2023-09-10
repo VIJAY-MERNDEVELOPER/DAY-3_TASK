@@ -1,25 +1,22 @@
-let obj1={name:"person 1",age:5};
- let obj2={age:5,name:"person 1"};
- //console.log(Object.keys(obj1).sort());
+let jsonObj={name:"person 1",age:5};
+ let jsonObj1={age:5,name:"person 1"};
 
- function compareJSON(){
- let A=Object.keys(obj1).length ;
- let B=Object.keys(obj2).length ;
+var obj = Object.keys(jsonObj);
+const compareObj=()=>{
 
- if(A !==B){
-               return false;
- }
- for(var key in obj1){
-    if(!obj2.hasOwnProperty(key) || obj1[key] !== obj1[key]){
-        return false;
-
-    }else{
-        return true;
+if(Object.keys(jsonObj).length === Object.keys(jsonObj1).length){
+    // for...of...{} method
+for(const element of obj){
+    if(jsonObj.hasOwnProperty(element)===jsonObj1.hasOwnProperty(element)){
+        console.log(`${true}`);
     }
- }
+    else{
+        console.log(false);    }
 }
-console.log(compareJSON());
 
+}else{
+    console.log("not equal");
+}
 
-
- 
+}
+compareObj();
